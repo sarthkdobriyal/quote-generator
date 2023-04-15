@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { add, selectBookmarks } from "../slices/bookmarkSlice";
 
-const Quote = ({ id, content, author }) => {
+const Quote = ({ id, content, author, fromBookmarks=false }) => {
   const dispatch = useDispatch();
   const bookmarks = useSelector(selectBookmarks);
 
@@ -33,12 +33,13 @@ const Quote = ({ id, content, author }) => {
       <div className="text-sm md:text-xl font-medium">{content}</div>
       <div className="text-sm md:text-lg font-bold">- {author}</div>
 
-      <button
+      {!fromBookmarks &&
+        <button
         className="bookmarkIcon absolute text-sm bottom-5 right-3 md:bottom-8 md:right-10 hover:text-opacity-20 cursor-pointer outline-none"
         onClick={bookmarkQuote}
       >
         <img src="/bookmark.png" className="h-7 w-7 outline-none" alt="" />
-      </button>
+      </button>}
     </div>
   );
 };

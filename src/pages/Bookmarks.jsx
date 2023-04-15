@@ -13,8 +13,10 @@ const Bookmarks = () => {
       {
         quotes?.map((quote) => (
           <Quote
+          id={quote.id}
             content={quote.content}
             author={quote.author}
+            fromBookmarks={true}
           />
         ))
       }
