@@ -27,9 +27,8 @@ const Home = () => {
     },[])
 
 
-    console.log(tag);
   return (
-    <div className="mt-10 flex flex-col space-y-5 px-10 items-center" >
+    <div className="py-10 flex flex-col space-y-5 px-10 items-center" >
       <Quote
         content={quote.content}
         author={quote.author}

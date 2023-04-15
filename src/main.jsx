@@ -2,28 +2,17 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
 import './index.css'
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-import Bookmarks from './pages/Bookmarks';
+import { store } from './app/store'
+import { Provider } from 'react-redux'
+import { BrowserRouter } from "react-router-dom";
 
 
-
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-  },
-  {
-    path: "/bookmarks",
-    element: <Bookmarks />
-  }
-]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-     <RouterProvider router={router} />
+    
+    <Provider store={store}>
+    <App />
+    </Provider>
   </React.StrictMode>,
 )
