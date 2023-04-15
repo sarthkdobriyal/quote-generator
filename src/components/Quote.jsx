@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { add, selectBookmarks } from "../slices/bookmarkSlice";
+import { add, remove, selectBookmarks } from "../slices/bookmarkSlice";
 
 const Quote = ({ id, content, author, fromBookmarks=false }) => {
   const dispatch = useDispatch();
@@ -28,13 +28,23 @@ const Quote = ({ id, content, author, fromBookmarks=false }) => {
     alert("Item bookmarked");
   };
 
+  const removeBookmark = () => {
+    dispatch(remove({id:id}))
+  }
+
   return (
     <div className="relative w-[60%] mx-auto my-10 p-10 md:p-16 bg-[#d05252] rounded-2xl text-center text-white flex flex-col space-y-10">
       <div className="text-sm md:text-xl font-medium">{content}</div>
       <div className="text-sm md:text-lg font-bold">- {author}</div>
 
-      {!fromBookmarks &&
-        <button
+      {fromBookmarks ? 
+         <button
+         className="bookmarkIcon absolute text-sm bottom-5 right-3 md:bottom-8 md:right-10 hover:text-opacity-20 cursor-pointer outline-none"
+         onClick={removeBookmark}
+       >
+         <img src="/bin.png" className="h-7 w-7 outline-none" alt="" />
+       </button>
+        :<button
         className="bookmarkIcon absolute text-sm bottom-5 right-3 md:bottom-8 md:right-10 hover:text-opacity-20 cursor-pointer outline-none"
         onClick={bookmarkQuote}
       >
