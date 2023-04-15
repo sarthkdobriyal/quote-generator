@@ -9,6 +9,7 @@ export const bookmarkSlice = createSlice({
   initialState,
   reducers: {
     add: (state, action) => {
+        
       state.items.push(action.payload)
     },
     remove: (state, action) => {

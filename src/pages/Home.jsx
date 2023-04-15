@@ -30,6 +30,7 @@ const Home = () => {
   return (
     <div className="py-10 flex flex-col space-y-5 px-10 items-center" >
       <Quote
+        id={quote._id}
         content={quote.content}
         author={quote.author}
       />
