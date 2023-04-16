@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import Quote from '../components/Quote'
 import axios from 'axios'
 import Loader from '../components/Loader';
+import { useDispatch } from 'react-redux';
+import { add } from '../slices/bookmarkSlice';
 
 
 
@@ -12,6 +14,8 @@ const Home = () => {
     const [tag, setTag] = useState("")
 
     const [loading, setLoading] = useState(false);
+
+    const dispatch = useDispatch();
 
     const fetchQuote = async () => {
         setLoading(true)
@@ -28,8 +32,12 @@ const Home = () => {
     }
 
     useEffect(() => {
+
+        setLoading(true);
+        
         fetchTags();
         fetchQuote();
+        setLoading(false);
     },[])
 
 

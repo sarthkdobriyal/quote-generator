@@ -42,13 +42,13 @@ const Quote = ({ id, content, author, fromBookmarks=false }) => {
          className="bookmarkIcon absolute text-sm bottom-5 right-3 md:bottom-8 md:right-10 hover:text-opacity-20 cursor-pointer outline-none"
          onClick={removeBookmark}
        >
-         <img src="/bin.png" className="h-7 w-7 outline-none" alt="" />
+         <img src="/bin.png" className="h-4 md:h-7 w-4 md:w-7 outline-none" alt="" />
        </button>
         :<button
         className="bookmarkIcon absolute text-sm bottom-5 right-3 md:bottom-8 md:right-10 hover:text-opacity-20 cursor-pointer outline-none"
         onClick={bookmarkQuote}
       >
-        <img src="/bookmark.png" className="h-7 w-7 outline-none" alt="" />
+        <img src="/bookmark.png" className="h-4 md:h-7 w-4 md:w-7 outline-none" alt="" />
       </button>}
     </div>
   );
