@@ -11,7 +11,6 @@ import axios from "axios";
 
 function App() {
   const dispatch = useDispatch();
-  const quotes = useSelector(selectBookmarks);
 
   useEffect(() => {
     const localStorageItems = JSON.parse(localStorage.getItem("bookmarksId"));
