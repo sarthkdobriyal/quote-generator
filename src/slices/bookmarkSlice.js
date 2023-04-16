@@ -11,7 +11,16 @@ export const bookmarkSlice = createSlice({
     add: (state, action) => {
         
         if(action.payload.id){
-            state.items.push(action.payload)
+            let isAdded = false;
+            state.items.forEach((quote) => {
+              if(quote.id === action.payload.id){
+                isAdded = true;
+                return;
+              }
+            })
+            if(!isAdded){
+                state.items.push(action.payload)
+            }
 
             
             let localArr = JSON.parse(localStorage.getItem('bookmarksId'));
@@ -21,7 +30,7 @@ export const bookmarkSlice = createSlice({
             }else{
                 let isPresent = false;
                 localArr.forEach((item) => {
-                    if(item === action.payload.id) isPresent = true
+                    if(item === action.payload.id) {isPresent = true}
                 })
                 if(!isPresent) {
                     const newArr = [...localArr,action.payload.id]

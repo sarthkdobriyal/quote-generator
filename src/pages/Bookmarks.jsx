@@ -8,30 +8,11 @@ import axios from 'axios';
 
 const Bookmarks = () => {
 
-  const dispatch = useDispatch();
+  
   const quotes = useSelector(selectBookmarks);
   
-  useEffect(() => {
-    const localStorageItems = JSON.parse(localStorage.getItem('bookmarksId'));
-    console.log(localStorageItems);
-        
-            localStorageItems.map(async (item) => {
-              
-                const res = await axios.get(`https://api.quotable.io/quotes/${item}`)
-                console.log(res.data)
-                const quoteToBookmark = {
-                  id: res.data._id,
-                  content: res.data.content,
-                  author: res.data.author,
-                };
-                
-                  dispatch(add(quoteToBookmark))
-                
-              
-            })
-
-  }, [])
-
+  
+  
   return (
     <div className=" text-center h-screen bg-gradient-to-tr from-purple-900 to-purple-300" >
       <div className='h-screen overflow-y-scroll '>
